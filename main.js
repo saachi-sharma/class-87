@@ -1,13 +1,18 @@
 var canvas = new fabric.Canvas('myCanvas');
-block_image_width = 30;
-block_image_height = 30;
+
 player_x = 10;
 player_y = 10;
+
+block_image_width = 30;
+block_image_height = 30;
+
 var block_image_object="";
 var player_object= "";
+
 function player_update()
 {
-    fabric.Image.formURL("player.png", function(Img) {
+    fabric.Image.fromURL("player.png", function(Img) 
+{
     player_object = Img;
         
         player_object.scaleToWidth(150);
@@ -17,6 +22,7 @@ function player_update()
             left:player_x
         });
         canvas.add(player_object);
+        
     });
 }
 function new_image(get_image)
@@ -121,3 +127,58 @@ function my_keydown(e)
             console.log("c");  
         }
 }
+function up()
+{
+    
+    if(player_y >=0)
+        {
+            player_y = player_y - block_image_height;
+            console.log("block image height = " + block_image_height);
+            console.log("When Up arrow key is pressed, X = " + player_x + " , Y = "+player_y);
+            canvas.remove(player_object);
+            player_update();
+        }
+}
+function down()
+{
+    
+    if(player_y <=500)
+        {
+            player_y = player_y + block_image_height;
+            console.log("block image height = " + block_image_height);
+            console.log("When Down arrow key is pressed, X = " + player_x + " , Y = "+player_y);
+            canvas.remove(player_object);
+            player_update();
+        }
+}
+function left()
+{
+    
+    if(player_x <=0)
+        {
+            player_x = player_x + block_image_height;
+            console.log("block image height = " + block_image_height);
+            console.log("When Down arrow key is pressed, X = " + player_x + " , Y = "+player_y);
+            canvas.remove(player_object);
+            player_update();
+        }
+}
+function right()
+{
+    
+    if(player_x <=850)
+        {
+            player_x = player_x + block_image_height;
+            console.log("block image height = " + block_image_height);
+    console.log("When Down arrow key is pressed, X = " + player_x + " , Y = "+player_y);
+            canvas.remove(player_object);
+            player_update();
+        }
+}
+
+
+
+
+
+
+
